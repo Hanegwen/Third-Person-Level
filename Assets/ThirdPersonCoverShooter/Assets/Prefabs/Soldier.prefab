@@ -1284,6 +1284,7 @@ GameObject:
   - component: {fileID: 114078283685996584}
   - component: {fileID: 114131469677004634}
   - component: {fileID: 114963522310872146}
+  - component: {fileID: 7652895315539859959}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -1387,20 +1388,7 @@ MonoBehaviour:
   DamageMultiplier: 1
   IsEquipped: 1
   Weapon:
-    RightItem: {fileID: 0}
-    LeftItem: {fileID: 0}
-    RightHolster: {fileID: 0}
-    LeftHolster: {fileID: 0}
-    Shield: {fileID: 0}
-    PreferSwapping: 1
-    IsDualWielding: 1
-    IsHeavy: 0
-    PreventCovers: 0
-    PreventClimbing: 0
-    PreventArmLowering: 0
-    Aiming: 0
-  Weapons:
-  - RightItem: {fileID: 1507165013372212}
+    RightItem: {fileID: 1507165013372212}
     LeftItem: {fileID: 0}
     RightHolster: {fileID: 1350229888155092}
     LeftHolster: {fileID: 0}
@@ -1412,30 +1400,7 @@ MonoBehaviour:
     PreventClimbing: 0
     PreventArmLowering: 0
     Aiming: 0
-  - RightItem: {fileID: 1536572160279772}
-    LeftItem: {fileID: 0}
-    RightHolster: {fileID: 1141993569315770}
-    LeftHolster: {fileID: 0}
-    Shield: {fileID: 0}
-    PreferSwapping: 0
-    IsDualWielding: 0
-    IsHeavy: 0
-    PreventCovers: 0
-    PreventClimbing: 0
-    PreventArmLowering: 0
-    Aiming: 0
-  - RightItem: {fileID: 0}
-    LeftItem: {fileID: 0}
-    RightHolster: {fileID: 0}
-    LeftHolster: {fileID: 0}
-    Shield: {fileID: 0}
-    PreferSwapping: 0
-    IsDualWielding: 0
-    IsHeavy: 0
-    PreventCovers: 0
-    PreventClimbing: 0
-    PreventArmLowering: 0
-    Aiming: 0
+  Weapons: []
   Grenade:
     Left: {fileID: 1067756822573336}
     Right: {fileID: 1540489220785842}
@@ -1885,6 +1850,55 @@ MonoBehaviour:
   FieldOfView: 90
   CoverOffset: 2
   CoverSearchDistance: 3
+--- !u!114 &7652895315539859959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317045090754292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f825e350da1be534680d9e2b102e11f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapons:
+  - RightItem: {fileID: 1507165013372212}
+    LeftItem: {fileID: 0}
+    RightHolster: {fileID: 1350229888155092}
+    LeftHolster: {fileID: 0}
+    Shield: {fileID: 0}
+    PreferSwapping: 0
+    IsDualWielding: 0
+    IsHeavy: 0
+    PreventCovers: 0
+    PreventClimbing: 0
+    PreventArmLowering: 0
+    Aiming: 0
+  - RightItem: {fileID: 1536572160279772}
+    LeftItem: {fileID: 0}
+    RightHolster: {fileID: 1141993569315770}
+    LeftHolster: {fileID: 0}
+    Shield: {fileID: 0}
+    PreferSwapping: 0
+    IsDualWielding: 0
+    IsHeavy: 0
+    PreventCovers: 0
+    PreventClimbing: 0
+    PreventArmLowering: 0
+    Aiming: 0
+  - RightItem: {fileID: 0}
+    LeftItem: {fileID: 0}
+    RightHolster: {fileID: 0}
+    LeftHolster: {fileID: 0}
+    Shield: {fileID: 0}
+    PreferSwapping: 0
+    IsDualWielding: 0
+    IsHeavy: 0
+    PreventCovers: 0
+    PreventClimbing: 0
+    PreventArmLowering: 0
+    Aiming: 0
 --- !u!1 &1331399660097804
 GameObject:
   m_ObjectHideFlags: 0
