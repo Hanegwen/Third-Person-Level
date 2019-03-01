@@ -1813,7 +1813,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh51528
+  m_Name: pb_Mesh19320
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -3016,6 +3016,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Waypoints:
   - Position: {x: 11.240555, y: 0, z: 13.8626375}
+    Run: 0
+    Pause: 0
+  - Position: {x: 13.457775, y: 0, z: 13.8918705}
     Run: 0
     Pause: 0
   - Position: {x: 13.457775, y: 0, z: 13.8918705}
@@ -5261,17 +5264,9 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 04000000
-  m_SelectedEdges:
-  - a: 16
-    b: 17
-  - a: 18
-    b: 16
-  - a: 17
-    b: 19
-  - a: 19
-    b: 18
-  m_SelectedVertices: 10000000110000001200000013000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!33 &1489397385
 MeshFilter:
   m_ObjectHideFlags: 0
