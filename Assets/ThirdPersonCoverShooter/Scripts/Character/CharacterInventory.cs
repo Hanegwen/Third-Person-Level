@@ -5,6 +5,7 @@ namespace CoverShooter
     [RequireComponent(typeof(CharacterMotor))]
     public class CharacterInventory : MonoBehaviour
     {
+
         /// <summary>
         /// All the weapons belonging in the inventory.
         /// </summary>
@@ -13,6 +14,9 @@ namespace CoverShooter
 
         private void Awake()
         {
+
+
+
             var motor = GetComponent<CharacterMotor>();
 
             for (int i = 0; i < Weapons.Length; i++)

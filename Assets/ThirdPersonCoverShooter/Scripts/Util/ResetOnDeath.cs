@@ -9,11 +9,17 @@ namespace CoverShooter
     /// </summary>
     public class ResetOnDeath : MonoBehaviour, ICharacterHealthListener
     {
+        Transform startPosition;
         /// <summary>
         /// Time in seconds to reset the level after character's death
         /// </summary>
         [Tooltip("Time in seconds to reset the level after character's death")]
         public float Delay = 3.0f;
+
+        void Start()
+        {
+            startPosition = this.transform;
+        }
 
         /// <summary>
         /// Starts a sequence to reset the level after waiting for Delay.
@@ -28,6 +34,7 @@ namespace CoverShooter
         private IEnumerator delayedReset()
         {
             yield return new WaitForSeconds(Delay);
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
