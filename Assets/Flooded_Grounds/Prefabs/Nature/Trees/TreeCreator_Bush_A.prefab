@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 19310186}
   - component: {fileID: 3380234}
   - component: {fileID: 2393040}
+  - component: {fileID: 838985828773342995}
+  - component: {fileID: 8433327000411152424}
   m_Layer: 0
   m_Name: TreeCreator_Bush_A
   m_TagString: Untagged
@@ -88,6 +90,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &838985828773342995
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4329908}
+--- !u!65 &8433327000411152424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.68268585, y: 2.1761756, z: 1.5615692}
+  m_Center: {x: -0.0044288635, y: 0.804333, z: -0.055309296}
 --- !u!21 &2179674
 Material:
   serializedVersion: 6
@@ -101,7 +130,7 @@ Material:
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -147,7 +176,7 @@ Material:
   m_LightmapFlags: 5
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -355,7 +384,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 3563
-  materialHash: 6d87cc8369d5c92dabf530e2ef0e65db-550813696
+  materialHash: a8f9e9eb240395758ddc93177d0ea605-550813696
   root:
     _uniqueID: 1
     seed: 1234

@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerOverlay : MonoBehaviour
 {
     [SerializeField]
     Transform Eyeline;
+
+    [SerializeField]
+    TextMeshProUGUI OverlayText;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,10 +25,15 @@ public class PlayerOverlay : MonoBehaviour
         if(Physics.Raycast(Eyeline.position, endPoint, out hit))
         {
             print(hit.transform.name);
+            OverlayText.text = "";
             if(hit.transform.gameObject.GetComponent<HealthPickUp>() != null)
             {
-                print("Hit");
-                hit.transform.gameObject.GetComponent<HealthPickUp>().PickUp();
+                OverlayText.text = "Press E To Heal";
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.transform.gameObject.GetComponent<HealthPickUp>().PickUp();
+                }
             }
         }
     }
