@@ -89,7 +89,7 @@ namespace CoverShooter
         /// <summary>
         /// Number of bullets left in the gun.
         /// </summary>
-        public abstract int LoadedBulletsLeft { get; }
+        public abstract int LoadedBulletsLeft { get; set; }
 
         /// <summary>
         /// Is the gun fully loaded with bullets.

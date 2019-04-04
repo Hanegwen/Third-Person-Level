@@ -35,6 +35,16 @@ public class PlayerOverlay : MonoBehaviour
                     hit.transform.gameObject.GetComponent<HealthPickUp>().PickUp();
                 }
             }
+
+            if(hit.transform.gameObject.GetComponent<AmmoCrate>() != null)
+            {
+                OverlayText.text = "Press E To Gain Ammo In Active Gun";
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.transform.gameObject.GetComponent<AmmoCrate>().OnHit();
+                }
+            }
         }
     }
 }
