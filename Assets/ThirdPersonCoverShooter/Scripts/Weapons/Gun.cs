@@ -15,7 +15,7 @@ namespace CoverShooter
         /// <summary>
         /// Number of bullets left in the gun.
         /// </summary>
-        public override int LoadedBulletsLeft { get { return LoadedBullets; } }
+        public override int LoadedBulletsLeft { get { return LoadedBullets; } set { } }
 
         /// <summary>
         /// Is the gun fully loaded with bullets.

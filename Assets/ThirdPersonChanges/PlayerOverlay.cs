@@ -19,7 +19,8 @@ public class PlayerOverlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 endPoint = (transform.forward * 3) + Eyeline.position;
+        Vector3 endPoint = new Vector3();
+        endPoint = (transform.forward * 3) + Eyeline.position;
         Debug.DrawLine(Eyeline.position, endPoint, Color.red);
         RaycastHit hit;
         if(Physics.Raycast(Eyeline.position, endPoint, out hit))
