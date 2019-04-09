@@ -769,6 +769,8 @@ namespace CoverShooter
             }
         }
 
+        EnemyDeathAddon enemyDeathAddon;
+
         /// <summary>
         /// Is aiming a tool.
         /// </summary>
@@ -1786,6 +1788,7 @@ namespace CoverShooter
                 return;
 
             IsAlive = false;
+            enemyDeathAddon.OnDeath();
 
             for (int i = 0; i < _healthListeners.Length; i++)
                 _healthListeners[i].OnDead();
@@ -5069,6 +5072,11 @@ namespace CoverShooter
                 else
                     _isBlocking = _wantsToBlock;
             }
+        }
+
+        private void Start()
+        {
+            enemyDeathAddon = GetComponent<EnemyDeathAddon>();
         }
 
         private void updateFire()

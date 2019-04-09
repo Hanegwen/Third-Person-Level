@@ -44,7 +44,10 @@ namespace CoverShooter
             if (!Motor.IsEquipped) gun = null;
 
             if (gun != null)
-                _text.text = gun.Name + " " + gun.LoadedBulletsLeft.ToString(); 
+            {
+                print("Current AMMo" + gun.LoadedBulletsLeft.ToString());
+                _text.text = gun.Name + " " + gun.LoadedBulletsLeft.ToString();
+            }
 
             if (Application.isPlaying)
             {

@@ -25,7 +25,7 @@ public class PlayerOverlay : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(Eyeline.position, endPoint, out hit))
         {
-            print(hit.transform.name);
+            //print(hit.transform.name);
             OverlayText.text = "";
             if(hit.transform.gameObject.GetComponent<HealthPickUp>() != null)
             {
