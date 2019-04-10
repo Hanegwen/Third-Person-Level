@@ -10,6 +10,9 @@ public class PlayerOverlay : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI OverlayText;
+
+    [SerializeField]
+    TextMeshProUGUI GoalText;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,5 +50,10 @@ public class PlayerOverlay : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void UpdateGoal(string NewGoal)
+    {
+        GoalText.text = NewGoal;
     }
 }
