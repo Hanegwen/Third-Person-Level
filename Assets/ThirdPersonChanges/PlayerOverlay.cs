@@ -102,6 +102,7 @@ public class PlayerOverlay : MonoBehaviour
                     GoalText.text = "Shoot The Enemy In The Head (Left Mouse Click To Shoot)";
                     break;
                 case TutorialStates.SwitchingWeapons:
+                    GoalText.text = "Find an Entrance to The Sewer";
                     break;
                 default:
                     break;
