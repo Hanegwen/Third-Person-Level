@@ -13,15 +13,22 @@ public class PlayerOverlay : MonoBehaviour
 
     [SerializeField]
     TextMeshProUGUI GoalText;
+
+    bool inTutorial = true;
+
+    enum TutorialStates { Moving, Climbing, Crouching, Shooting, SwitchingWeapons};
+    TutorialStates currentTutorial;
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentTutorial = TutorialStates.Moving;
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateTutorial();
+
         Vector3 endPoint = new Vector3();
         endPoint = (transform.forward * 3) + Eyeline.position;
         Debug.DrawLine(Eyeline.position, endPoint, Color.red);
@@ -52,8 +59,61 @@ public class PlayerOverlay : MonoBehaviour
         }
     }
 
+    void UpdateTutorial()
+    {
+        if(inTutorial)
+        {
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
+            {
+                if(currentTutorial == TutorialStates.Moving)
+                {
+                    currentTutorial = TutorialStates.Climbing;
+
+                }
+            }
+
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                if(currentTutorial == TutorialStates.Climbing)
+                {
+                    currentTutorial = TutorialStates.Shooting;
+                }
+            }
+
+            if(Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                if(currentTutorial == TutorialStates.Shooting)
+                {
+                    currentTutorial = TutorialStates.SwitchingWeapons;
+                }
+            }
+
+            switch (currentTutorial)
+            {
+                case TutorialStates.Moving:
+                    GoalText.text = "Move Using WASD";
+                    break;
+                case TutorialStates.Climbing:
+                    GoalText.text = "Go into Cover the Jump (Press Space)";
+                    break;
+                case TutorialStates.Crouching:
+                    break;
+                case TutorialStates.Shooting:
+                    GoalText.text = "Shoot The Enemy In The Head (Left Mouse Click To Shoot)";
+                    break;
+                case TutorialStates.SwitchingWeapons:
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
     public void UpdateGoal(string NewGoal)
     {
-        GoalText.text = NewGoal;
+        if (!inTutorial)
+        {
+            GoalText.text = NewGoal;
+        }
     }
 }
