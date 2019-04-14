@@ -12,16 +12,22 @@ public class PlayerOverlay : MonoBehaviour
     TextMeshProUGUI OverlayText;
 
     [SerializeField]
-    TextMeshProUGUI GoalText;
+    TextMeshProUGUI GoalText, Moving, Climbing, Aiming, Shooting, SwitchWeapons;
 
     bool inTutorial = true;
 
-    enum TutorialStates { Moving, Climbing, Crouching, Shooting, SwitchingWeapons};
+    enum TutorialStates { Moving, Climbing, Crouching, Shooting, SwitchingWeapons, Aiming};
     TutorialStates currentTutorial;
     // Start is called before the first frame update
     void Start()
     {
         currentTutorial = TutorialStates.Moving;
+
+        Moving.text = "";
+        Climbing.text = "";
+        Aiming.text = "";
+        Shooting.text = "";
+        SwitchWeapons.text = "";
     }
 
     // Update is called once per frame
@@ -67,7 +73,12 @@ public class PlayerOverlay : MonoBehaviour
             {
                 if(currentTutorial == TutorialStates.Moving)
                 {
-                    currentTutorial = TutorialStates.Climbing;
+                    print("Movement Section");
+                    GoalText.color = Color.green;
+
+                    Moving.text = "Move: WASD";
+
+                    StartCoroutine(CooldownToChange(TutorialStates.Climbing));
 
                 }
             }
@@ -76,7 +87,23 @@ public class PlayerOverlay : MonoBehaviour
             {
                 if(currentTutorial == TutorialStates.Climbing)
                 {
-                    currentTutorial = TutorialStates.Shooting;
+                    GoalText.color = Color.green;
+
+                    Climbing.text = "Jumping and Vaulting: Space";
+
+                    StartCoroutine(CooldownToChange(TutorialStates.Aiming));
+                }
+            }
+
+            if(Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                if(currentTutorial == TutorialStates.Aiming)
+                {
+                    GoalText.color = Color.green;
+
+                    Aiming.text = "Aiming: Right Mouse";
+
+                    StartCoroutine(CooldownToChange(TutorialStates.Shooting));
                 }
             }
 
@@ -84,7 +111,11 @@ public class PlayerOverlay : MonoBehaviour
             {
                 if(currentTutorial == TutorialStates.Shooting)
                 {
-                    currentTutorial = TutorialStates.SwitchingWeapons;
+                    GoalText.color = Color.green;
+
+                    Shooting.text = "Shooting: Left Mouse";
+
+                    StartCoroutine(CooldownToChange(TutorialStates.SwitchingWeapons));
                 }
             }
 
@@ -94,9 +125,12 @@ public class PlayerOverlay : MonoBehaviour
                     GoalText.text = "Move Using WASD";
                     break;
                 case TutorialStates.Climbing:
-                    GoalText.text = "Go into Cover the Jump (Press Space)";
+                    GoalText.text = "Go into Cover and Jump (Press Space)";
                     break;
                 case TutorialStates.Crouching:
+                    break;
+                case TutorialStates.Aiming:
+                    GoalText.text = "Aiming by Holding the Right Mouse Button";
                     break;
                 case TutorialStates.Shooting:
                     GoalText.text = "Shoot The Enemy In The Head (Left Mouse Click To Shoot)";
@@ -116,5 +150,17 @@ public class PlayerOverlay : MonoBehaviour
         {
             GoalText.text = NewGoal;
         }
+    }
+
+    IEnumerator CooldownToChange(TutorialStates request)
+    {
+        print("Recieved Request");
+        yield return new WaitForSeconds(3);
+        print("Request Done");
+
+
+        GoalText.color = Color.white;
+        currentTutorial = request;
+
     }
 }
