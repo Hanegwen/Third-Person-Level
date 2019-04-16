@@ -12,7 +12,7 @@ public class PlayerOverlay : MonoBehaviour
     TextMeshProUGUI OverlayText;
 
     [SerializeField]
-    TextMeshProUGUI GoalText, Moving, Climbing, Aiming, Shooting, SwitchWeapons;
+    TextMeshProUGUI GoalText, Moving, Climbing, Aiming, Shooting, SwitchWeapons, PermanentGoalText, Croaching;
 
     bool inTutorial = true;
 
@@ -28,6 +28,7 @@ public class PlayerOverlay : MonoBehaviour
         Aiming.text = "";
         Shooting.text = "";
         SwitchWeapons.text = "";
+        Croaching.text = "";
     }
 
     // Update is called once per frame
@@ -115,6 +116,18 @@ public class PlayerOverlay : MonoBehaviour
 
                     Shooting.text = "Shooting: Left Mouse";
 
+                    StartCoroutine(CooldownToChange(TutorialStates.Crouching));
+                }
+            }
+
+            if(Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                if(currentTutorial == TutorialStates.Crouching)
+                {
+                    GoalText.color = Color.green;
+
+                    Croaching.text = "Crouch: Hold Left CTRL";
+
                     StartCoroutine(CooldownToChange(TutorialStates.SwitchingWeapons));
                 }
             }
@@ -125,9 +138,10 @@ public class PlayerOverlay : MonoBehaviour
                     GoalText.text = "Move Using WASD";
                     break;
                 case TutorialStates.Climbing:
-                    GoalText.text = "Go into Cover and Jump (Press Space)";
+                    GoalText.text = "Go into Cover, hold W ,and press Jump (Press Space)";
                     break;
                 case TutorialStates.Crouching:
+                    GoalText.text = "Crouch (hold Left CTRL) and go under the light pole";
                     break;
                 case TutorialStates.Aiming:
                     GoalText.text = "Aiming by Holding the Right Mouse Button";
@@ -136,7 +150,8 @@ public class PlayerOverlay : MonoBehaviour
                     GoalText.text = "Shoot The Enemy In The Head (Left Mouse Click To Shoot)";
                     break;
                 case TutorialStates.SwitchingWeapons:
-                    GoalText.text = "Find an Entrance to The Sewer";
+                    GoalText.text = "";
+                    PermanentGoalText.text = "Find an Entrance to The Sewer";
                     break;
                 default:
                     break;
@@ -155,7 +170,7 @@ public class PlayerOverlay : MonoBehaviour
     IEnumerator CooldownToChange(TutorialStates request)
     {
         print("Recieved Request");
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(3.5f);
         print("Request Done");
 
 
