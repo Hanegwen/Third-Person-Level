@@ -35,7 +35,7 @@ namespace CoverShooter
         {
             yield return new WaitForSeconds(Delay);
 
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("SampleScene");
         }
 
         private void OnValidate()
