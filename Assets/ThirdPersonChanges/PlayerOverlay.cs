@@ -18,6 +18,14 @@ public class PlayerOverlay : MonoBehaviour
 
     enum TutorialStates { Moving, Climbing, Crouching, Shooting, SwitchingWeapons, Aiming};
     TutorialStates currentTutorial;
+
+
+    bool hasMoved = false;
+    bool hasJumped = false;
+    bool hasAimed = false;
+    bool hasShot = false;
+    bool EnemyKilledEarly = false;
+    bool hasCrouched = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +37,7 @@ public class PlayerOverlay : MonoBehaviour
         Shooting.text = "";
         SwitchWeapons.text = "";
         Croaching.text = "";
+        GoalText.text = "";
     }
 
     // Update is called once per frame
@@ -64,6 +73,47 @@ public class PlayerOverlay : MonoBehaviour
                 }
             }
         }
+
+        switch (currentTutorial)
+        {
+            case TutorialStates.Moving:
+                if(hasMoved)
+                {
+                    Moving.text = "Move: WASD";
+                    currentTutorial = TutorialStates.Climbing;
+                }
+                break;
+            case TutorialStates.Climbing:
+                if(hasJumped)
+                {
+                    Climbing.text = "Jumping and Vaulting: Space";
+                    currentTutorial = TutorialStates.Aiming;
+                }
+                break;
+            case TutorialStates.Crouching:
+                
+                break;
+            case TutorialStates.Aiming:
+                if(hasAimed)
+                {
+                    Aiming.text = "Aiming: Right Mouse";
+                    currentTutorial = TutorialStates.Shooting;
+                }
+                break;
+            case TutorialStates.Shooting:
+                if(hasShot)
+                {
+                    Shooting.text = "Shooting: Left Mouse";
+                    currentTutorial = TutorialStates.Crouching;
+                }
+                break;
+            case TutorialStates.SwitchingWeapons:
+                
+                break;
+            default:
+                break;
+        }
+        
     }
 
     void UpdateTutorial()
@@ -72,6 +122,7 @@ public class PlayerOverlay : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.D))
             {
+                hasMoved = true;
                 if(currentTutorial == TutorialStates.Moving)
                 {
                     print("Movement Section");
@@ -86,6 +137,7 @@ public class PlayerOverlay : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.Space))
             {
+                hasJumped = true;
                 if(currentTutorial == TutorialStates.Climbing)
                 {
                     GoalText.color = Color.green;
@@ -98,6 +150,7 @@ public class PlayerOverlay : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.Mouse1))
             {
+                hasAimed = true;
                 if(currentTutorial == TutorialStates.Aiming)
                 {
                     GoalText.color = Color.green;
@@ -110,6 +163,7 @@ public class PlayerOverlay : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.Mouse0))
             {
+                hasShot = true;
                 if(currentTutorial == TutorialStates.Shooting)
                 {
                     GoalText.color = Color.green;
@@ -122,6 +176,7 @@ public class PlayerOverlay : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.LeftControl))
             {
+                hasCrouched = true;
                 if(currentTutorial == TutorialStates.Crouching)
                 {
                     GoalText.color = Color.green;
@@ -158,6 +213,8 @@ public class PlayerOverlay : MonoBehaviour
             }
         }
     }
+
+    
 
     public void UpdateGoal(string NewGoal)
     {
