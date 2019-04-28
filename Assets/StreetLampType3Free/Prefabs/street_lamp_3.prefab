@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33917657107337768}
   - component: {fileID: 23861911165493686}
   - component: {fileID: 8313199647910483147}
+  - component: {fileID: 7789805154358550677}
   m_Layer: 0
   m_Name: street_lamp_3
   m_TagString: Untagged
@@ -94,6 +95,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 623db171e925cc444ab0dc320f958634, type: 3}
+--- !u!114 &7789805154358550677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271538652431596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &575410118479620244
 GameObject:
   m_ObjectHideFlags: 0
